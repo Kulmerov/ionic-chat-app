@@ -31,15 +31,16 @@
   var app = angular.module('app');
 
   app.controller("SiginCtrl", function($http) {
-    this.userdata = {
+    var self = this;
+    self.userdata = {
       login: "",
       password: ""
     };
 
-    this.sigIn = function() {
+    self.sigIn = function() {
       var params = {
-        "login": this.userdata.login,
-        "password": this.userdata.password
+        "login": self.userdata.login,
+        "password": self.userdata.password
       };
 
       // console.log(params);
