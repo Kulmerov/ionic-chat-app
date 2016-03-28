@@ -17,6 +17,11 @@
       templateUrl: "templates/sigin.html"
     });
 
+    $stateProvider.state("newmessage", {
+      url: "/newmessage",
+      templateUrl: "templates/newmessage.html"
+    });
+
     $urlRouterProvider.otherwise("/inbox");
   }); 
 }());

@@ -1,7 +1,7 @@
 ;(function() {
   var app = angular.module('app');
 
-  app.controller("OutboxCtrl", function($http) {
+  app.controller("NewMessageCtrl", function($http) {
     
   });
 }());

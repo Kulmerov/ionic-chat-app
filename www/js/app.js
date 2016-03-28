@@ -1,4 +1,4 @@
-(function() {
+;(function() {
   var app = angular.module('app', ['ionic']);
 
   app.run(function($ionicPlatform) {

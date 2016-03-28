@@ -1,5 +1,10 @@
-<ion-view view-title="Inbox Messages" ng-controller="InboxCtrl">
+<ion-view view-title="Inbox Messages" ng-controller="InboxCtrl as InboxCtrl">
 	<ion-content>
-		
+		<ion-list>
+	        <ion-item ng-repeat="message in InboxCtrl.messages">
+	            <h2>{{message.from}}</h2>
+	            <p>{{message.body}}</p>
+	        </ion-item> 
+	    </ion-list>
 	</ion-content>
 </ion-view>

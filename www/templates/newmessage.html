@@ -1,0 +1,15 @@
+<ion-view view-title="New Message" ng-controller="NewMessageCtrl as NewMessageCtrl">
+	<ion-content>
+		<div class="list card">
+			<div class="item item-input">
+				<input type="text" ng-model="NewMessageCtrl.message.to"></input>
+			</div>
+			<div class="item item-input">
+				<textarea rows="5" ng-model="NewMessageCtrl.message.body"></textarea>
+			</div>
+		</div>
+		<div class="padding">
+			<button class="button button-block button-calm" ng-click="NewMessageCtrl.send()">Save</button>
+		</div>
+	</ion-content>
+</ion-view>
