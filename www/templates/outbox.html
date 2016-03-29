@@ -1,5 +1,10 @@
-<ion-view view-title="Outbox Messages" ng-controller="OutboxCtrl">
+<ion-view view-title="Outbox Messages" ng-controller="OutboxCtrl as OutboxCtrl">
 	<ion-content>
-		
+		<ion-list>
+	        <ion-item ng-repeat="message in OutboxCtrl.messages">
+	            <h2>{{message.to}}</h2>
+	            <p>{{message.body}}</p>
+	        </ion-item> 
+	    </ion-list>
 	</ion-content>
 </ion-view>
