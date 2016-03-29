@@ -12,9 +12,14 @@
       templateUrl: "templates/outbox.html"
     });
 
-    $stateProvider.state("sigin", {
-      url: "/sigin",
-      templateUrl: "templates/sigin.html"
+    $stateProvider.state("signin", {
+      url: "/signin",
+      templateUrl: "templates/signin.html"
+    });
+
+    $stateProvider.state("signup", {
+      url: "/signup",
+      templateUrl: "templates/signup.html"
     });
 
     $stateProvider.state("newmessage", {

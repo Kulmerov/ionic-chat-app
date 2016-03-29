@@ -1,0 +1,15 @@
+<ion-view view-title="Sig up" ng-controller="SignUpCtrl as SignUpCtrl">
+	<ion-content>
+		<div class="list card">
+			<div class="item item-input">
+				<input placeholder="New Login" type="text" ng-model="SignUpCtrl.userdata.login"></input>
+			</div>
+			<div class="item item-input">
+				<input placeholder="New Password" type="password" ng-model="SignUpCtrl.userdata.password"></textarea>
+			</div>
+		</div>
+		<div class="padding">
+			<button class="button button-block button-balanced" ng-click="SignUpCtrl.sigUp()">Sign Up</button>
+		</div>
+	</ion-content>
+</ion-view>
