@@ -13,7 +13,6 @@
       }
       self.messages.push(message);
       i++;
-      console.log(i);
       $timeout(loadMessages, 3000);
       // $http.get("https://www.reddit.com/r/funny/new/.json", {params: ""})
       //   .success(function(response) { 

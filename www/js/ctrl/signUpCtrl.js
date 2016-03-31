@@ -1,7 +1,7 @@
 ;(function() {
   var app = angular.module('app');
 
-  app.controller("SignUpCtrl", function($http) {
+  app.controller("SignUpCtrl", function($http, $ionicPopup, $state, CONSTANT) {
     var self = this;
     self.userdata = {
       login: "",
@@ -9,19 +9,32 @@
     };
 
     self.signUp = function() {
-      var params = {
-        "login": self.userdata.login,
-        "password": self.userdata.password
-      };
+      var request = {
+        method: "POST",
+        url: CONSTANT.SERVER_URL + "user/registration",
+        data: { 
+          login: self.userdata.login, 
+          password: self.userdata.password
+        }
+      }; 
 
-      // console.log(params);
-
-      $http.get("http://localhost:8080/signup", {params: params})
+      $http(request)
         .success(function(response) {
-          alert("success!");
-          $state.go("inbox");
+          console.log(response);
+          if (response.status === "SUCCESS") {
+            
+            $state.go("inbox");
+          } else {
+            $ionicPopup.alert({
+              title: response.status,
+              template: response.body
+            });
+          }
         }).error(function(response) {
-          alert("error!");
+          $ionicPopup.alert({
+            title: "ERROR",
+            template: "Server does not respond"
+          });
         }); 
     }
 
