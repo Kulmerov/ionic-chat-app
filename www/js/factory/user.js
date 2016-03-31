@@ -2,12 +2,6 @@
   angular.module("app.storage", [])
     .factory("User", function($http, CONSTANT) {
 
-      // var storage = angular.fromJson(window.localStorage["user"]);
-
-      // var login = storage.login;
-      // var masterServerToken = storage.masterServerToken;
-      // var nodeServerToken = storage.nodeServerToken;
-
       var userBean = angular.fromJson(window.localStorage["user"] || []);
 
       var saveUserBean = function() {
@@ -23,23 +17,42 @@
           });
       };
 
-      var getRequest = function(login, password, action) {
+      var sendRequest = function(request, successCallback) {
+        $http(request)
+          .success(function(response) {
+            console.log(response);
+            if (response.status === "SUCCESS") {
+              successCallback(response.body);
+            } else {
+              popupBadRequest(response.status, response.body);
+            }
+          })
+          .error(function() {
+            popupBadRequest();
+            return false;
+          });
+      }
+
+      var constructRequest = function(action, data) {
         var rest = "";
+        var method = "GET";
         switch(action) {
           case "signUp":
             rest = "user/registration";
+            method = "POST";
             break;
           case "signIn":
-            rest = "user/login"
+            rest = "user/login";
+            method = "POST";
+            break;
+          case "messageServer":
+            rest = "message/server";
             break;
         }
         return {
-          method: "POST",
+          method: method,
           url: CONSTANT.SERVER_URL + rest,
-          data: {
-            login: login,
-            password: password
-          }
+          data: data
         }
       };
         
@@ -57,50 +70,46 @@
           return userBean.nodeServerToken;
         },
 
-        signIn: function(login, password) {
-          var request = getRequest(login, password, "signIn");
-          $http(request)
-            .success(function(response) {
-              console.log(response);
-              if (response.status === "SUCCESS") {
-                userBean.login = response.body.userBean.login;
-                userBean.masterServerToken = response.body.oauthKey;
-                saveUserBean();
-                return true;
-              } else {
-                popupBadRequest(response.status, response.body);
-                return false;
-              }
+        signIn: function(login, password, successCallback) {
+          var request = constructRequest("signIn", {
+            login: login,
+            password: password
+          });
+          
+          sendRequest(function(response) {
+            userBean.login = response.userBean.login;
+            userBean.masterServerToken = response.oauthKey;
+            saveUserBean();
 
-            }).error(function() {
-              popupBadRequest();
-              return false;
+            var request = constructRequest("messageServer", {
+              oauthKey: userBean.masterServerToken
             });
+
+            sendRequest(request, function(response) {
+              userBean.nodeServerUrl = response.url;
+              userBean.nodeServerToken = response.key;
+              successCallback();
+            });
+
+          });
         },
 
-        signUp: function(login, password) {
-          var request = getRequest(login, password, "signUp");
-          $http(request)
-            .success(function(response) {
-              console.log(response);
-              if (response.status === "SUCCESS") {
-                userBean.login = response.body.login;
-                saveUserBean();
-                return true;
-              } else {
-                popupBadRequest(response.status, response.body);
-                return false;
-              }
-
-            }).error(function() {
-              popupBadRequest();
-              return false;
-            });
+        signUp: function(login, password, successCallback) {
+          var request = constructRequest("signUp", {
+            login: login,
+            password: password
+          });
+          sendRequest (function(response) {
+            userBean.login = response.login;
+            saveUserBean();
+            successCallback();
+          });
         },
 
-        logout: function() {
+        logout: function(successCallback) {
           userBean = [];
           saveUserBean();
+          successCallback();
         }
 
       };
