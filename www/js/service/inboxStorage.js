@@ -1,15 +1,16 @@
-;(function() {
-  angular.module("app.inboxStorage", ['app.storage'])
-    .service("InboxStorage", function(Storage) {
-      var inboxStorage = new Storage("InboxStorage");
+;(function () {
+    var app = angular.module("app");
 
-      this.add = function(inboxMessage) {
-        inboxStorage.add(inboxMessage);
-      }
+    app.service("InboxStorage", function (Storage) {
+        var inboxStorage = new Storage("InboxStorage");
 
-      this.list = function() {
-        inboxStorage.list();
-      }
+        this.add = function (inboxMessage) {
+            inboxStorage.add(inboxMessage);
+        };
+
+        this.list = function () {
+            inboxStorage.list();
+        }
     });
 
 }());
