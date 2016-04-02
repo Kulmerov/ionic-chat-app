@@ -1,7 +1,7 @@
 ;(function () {
     var app = angular.module("app");
     
-    app.factory("Storage", function () {
+    app.factory("StorageFactory", function () {
 
         function Storage(storageName) {
             this.storageName = storageName;
