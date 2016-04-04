@@ -1,31 +1,14 @@
 ;(function () {
     var app = angular.module("app");
 
-    app.service("QueryBuilder", function ($http, $ionicPopup, CONSTANT) {
-
-        var popupBadRequest = function (title, template) {
-            title = title || "ERROR";
-            template = template || "Bad request";
-            $ionicPopup.alert({
-                title: title,
-                template: template
-            });
-        };
+    app.service("RequestBuilder", function ($http, $ionicPopup, CONSTANT) {
 
         this.sendRequest = function (request, successCallback) {
             $http(request)
                 .success(function (response) {
-                    console.log(response);
-                    if (response.status === "SUCCESS") {
-                        if (successCallback) {
-                            successCallback(response.body);
-                        }
-                    } else {
-                        popupBadRequest(response.status, response.body);
+                    if (successCallback) {
+                        successCallback(response.body);
                     }
-                })
-                .error(function () {
-                    popupBadRequest();
                 });
         };
 

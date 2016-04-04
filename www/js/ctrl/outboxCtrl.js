@@ -1,9 +1,8 @@
 ;(function () {
-    var app = angular.module('app');
+    var app = angular.module("app");
 
-    app.controller("OutboxCtrl", function (StorageFactory) {
+    app.controller("OutboxCtrl", function (Message) {
         var self = this;
-        var outboxStorage = new StorageFactory("OutboxStorage");
-        self.messages = outboxStorage.list();
+        self.messages = Message.listOutbox();
     });
 }());

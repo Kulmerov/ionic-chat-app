@@ -1,4 +1,4 @@
-(function () {
+;(function () {
     var app = angular.module("app");
 
     app.config(function ($stateProvider, $urlRouterProvider) {
@@ -29,4 +29,8 @@
 
         $urlRouterProvider.otherwise("/inbox");
     });
+
+    app.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.interceptors.push('ErrorHttpInterceptor');
+    }]);
 }());

@@ -1,7 +1,7 @@
 ;(function () {
     var app = angular.module("app");
 
-    app.service("User", function (QueryBuilder) {
+    app.service("User", function (CONSTANT) {
 
         var userBean = angular.fromJson(window.localStorage["user"] || []);
 
@@ -12,7 +12,7 @@
         this.getLogin = function () {
             return userBean.login;
         };
-        
+
         this.getNodeServerUrl = function () {
             return userBean.nodeServerUrl;
         };
@@ -26,24 +26,31 @@
         };
 
         this.signIn = function (login, password, successCallback) {
-            var request = QueryBuilder.constructRequest("signIn", {
-                login: login,
-                password: password
-            });
-            QueryBuilder.sendRequest(request, function (response) {
+            var request = {
+                method: CONSTANT.HTTP.REQUEST.AUTHORIZATION.METHOD,
+                url: CONSTANT.HTTP.REQUEST.AUTHORIZATION.URL,
+                data: {
+                    login: login,
+                    password: password
+                }
+            };
+
+            $http(request).success(function (response) {
                 userBean.login = response.login;
                 userBean.masterServerToken = response.oauthKey;
 
-                console.log(userBean.masterServerToken);
+                // console.log(userBean.masterServerToken);
                 saveUserBean();
 
-                var request = QueryBuilder.constructRequest("messageServer", {
-                    oauthKey: userBean.masterServerToken
-                });
-
-                console.log(request);
-
-                QueryBuilder.sendRequest(request, function (response) {
+                var request = {
+                    method: CONSTANT.HTTP.REQUEST.GET_MESSAGE_SERVER.METHOD,
+                    url: CONSTANT.HTTP.REQUEST.GET_MESSAGE_SERVER.URL,
+                    params: {
+                        oauthKey: userBean.masterServerToken
+                    }
+                };
+                
+                $http(request).success(function (response) {
                     userBean.nodeServerUrl = response.url;
                     userBean.nodeServerToken = response.key;
                     if (successCallback) {
@@ -55,11 +62,15 @@
         };
 
         this.signUp = function (login, password, successCallback) {
-            var request = constructRequest("signUp", {
-                login: login,
-                password: password
-            });
-            sendRequest(function (response) {
+            var request = {
+                method: CONSTANT.HTTP.REQUEST.REGISTRATION.METHOD,
+                url: CONSTANT.HTTP.REQUEST.REGISTRATION.URL,
+                data: {
+                    login: login,
+                    password: password
+                }
+            };
+            $http(request).success(function (response) {
                 userBean.login = response.login;
                 saveUserBean();
                 if (successCallback) {
