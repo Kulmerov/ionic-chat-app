@@ -1,18 +1,20 @@
 ;(function () {
     var app = angular.module("app");
 
-    app.service("Message", function (StorageFactory, User, $timeout, CONSTANT) {
+    app.service("Message", function (StorageFactory, User, $timeout, CONSTANT, $http) {
         var inboxStorage = new StorageFactory("InboxStorage");
         var outboxStorage = new StorageFactory("OutboxStorage");
 
         function loadMessages() {
             if (User.getNodeServerToken() !== undefined) {
                 var request = {
-                    method: CONSTANT.HTTP.RECEIVE_MESSAGES.METHOD,
-                    url: User.nodeServerUrl + CONSTANT.HTTP.RECEIVE_MESSAGES.REST + User.nodeServerToken
+                    method: CONSTANT.HTTP.REQUEST.RECEIVE_MESSAGES.METHOD,
+                    url: User.getNodeServerUrl() + CONSTANT.HTTP.REQUEST.RECEIVE_MESSAGES.REST + User.getNodeServerToken()
                 };
+                console.log(request.url);
 
                 $http(request).success(function (response) {
+                    response = response.body;
                     angular.forEach(response, function(message) {
                         inboxStorage.add(message);
                         self.messages.push(message);

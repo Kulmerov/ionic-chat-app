@@ -13,7 +13,6 @@
 
         return {
             response: function (response) {
-                console.log(response);
                 if (response.data.status && response.data.status === "ERROR") {
                     popupBadRequest(response.data.status, response.data.body);
                     return $q.reject(response);

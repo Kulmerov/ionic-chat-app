@@ -10,7 +10,7 @@
 
         self.signUp = function () {
             User.signUp(self.userdata.login, self.userdata.password, function () {
-                $state.go("inbox");
+                $state.go("signin");
             });
         }
 

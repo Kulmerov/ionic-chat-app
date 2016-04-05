@@ -3,29 +3,31 @@
 
     app.service("CONSTANT", function () {
         var self = this;
-        
+
+        var MASTER_SERVER_URL = "http://css.cloudapp.net:8080";
+
         self.HTTP = {
-            MASTER_SERVER_URL : "http://css.cloudapp.net:8080",
+            MASTER_SERVER_URL : MASTER_SERVER_URL,
             REQUEST : {
                 REGISTRATION: {
-                    URL: self.MASTER_SERVER_URL + "/user/registration",
+                    URL: MASTER_SERVER_URL + "/user/registration",
                     METHOD: "POST"
                 },
                 AUTHORIZATION: {
-                    URL: self.MASTER_SERVER_URL + "/user/login",
+                    URL: MASTER_SERVER_URL + "/user/login",
                     METHOD: "POST"
                 },
                 GET_MESSAGE_SERVER: {
-                    URL: self.MASTER_SERVER_URL + "/message/server",
+                    URL: MASTER_SERVER_URL + "/message/server",
                     METHOD: "GET"
                 },
                 SEND_MESSAGE: {
-                    URL: self.MASTER_SERVER_URL + "/message/send",
+                    URL: MASTER_SERVER_URL + "/message/send",
                     METHOD: "POST"
                 },
                 RECEIVE_MESSAGES: {
                     REST: "/messages/",
-                    METHOD: "POST"
+                    METHOD: "GET"
                 }
             }
         };

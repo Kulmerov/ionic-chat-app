@@ -1,7 +1,7 @@
 ;(function () {
     var app = angular.module("app");
 
-    app.service("User", function (CONSTANT) {
+    app.service("User", function (CONSTANT, $http) {
 
         var userBean = angular.fromJson(window.localStorage["user"] || []);
 
@@ -34,12 +34,14 @@
                     password: password
                 }
             };
-
+            
             $http(request).success(function (response) {
-                userBean.login = response.login;
-                userBean.masterServerToken = response.oauthKey;
+                userBean.login = response.body.userBean.login;
+                userBean.masterServerToken = response.body.oauthKey;
 
-                // console.log(userBean.masterServerToken);
+                console.log(userBean.login);
+                console.log(userBean.masterServerToken);
+
                 saveUserBean();
 
                 var request = {
@@ -49,10 +51,11 @@
                         oauthKey: userBean.masterServerToken
                     }
                 };
-                
+
                 $http(request).success(function (response) {
-                    userBean.nodeServerUrl = response.url;
-                    userBean.nodeServerToken = response.key;
+                    console.log(response.body.url);
+                    userBean.nodeServerUrl = response.body.url;
+                    userBean.nodeServerToken = response.body.key;
                     if (successCallback) {
                         successCallback();
                     }
@@ -71,7 +74,7 @@
                 }
             };
             $http(request).success(function (response) {
-                userBean.login = response.login;
+                userBean.login = response.body.login;
                 saveUserBean();
                 if (successCallback) {
                     successCallback();
