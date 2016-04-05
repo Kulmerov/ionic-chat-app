@@ -2,11 +2,15 @@
     var app = angular.module("app");
 
     app.service("User", function (CONSTANT, $http) {
+        var storageName = "user";
+        var userBean = angular.fromJson(window.localStorage[storageName]) || {};
 
-        var userBean = angular.fromJson(window.localStorage["user"] || []);
+        console.log(userBean);
 
         var saveUserBean = function () {
-            window.localStorage["user"] = angular.toJson(userBean);
+            console.log(userBean);
+            console.log(angular.toJson(userBean));
+            window.localStorage[storageName] = angular.toJson(userBean);
         };
 
         this.getLogin = function () {
@@ -42,8 +46,6 @@
                 console.log(userBean.login);
                 console.log(userBean.masterServerToken);
 
-                saveUserBean();
-
                 var request = {
                     method: CONSTANT.HTTP.REQUEST.GET_MESSAGE_SERVER.METHOD,
                     url: CONSTANT.HTTP.REQUEST.GET_MESSAGE_SERVER.URL,
@@ -56,6 +58,7 @@
                     console.log(response.body.url);
                     userBean.nodeServerUrl = response.body.url;
                     userBean.nodeServerToken = response.body.key;
+                    saveUserBean();
                     if (successCallback) {
                         successCallback();
                     }

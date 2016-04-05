@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6793e740-ec3b-4add-a4d3-9b1a6ed3c799" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../config.xml" afterPath="$PROJECT_DIR$/../config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ctrl/newMessageCtrl.js" afterPath="$PROJECT_DIR$/js/ctrl/newMessageCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/factory/errorHttpInterceptor.js" afterPath="$PROJECT_DIR$/js/factory/errorHttpInterceptor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/service/message.js" afterPath="$PROJECT_DIR$/js/service/message.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/service/user.js" afterPath="$PROJECT_DIR$/js/service/user.js" />
     </list>
     <ignored path="www.iws" />
@@ -28,11 +23,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/service/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+            <state relative-caret-position="72">
+              <caret line="5" column="78" selection-start-line="5" selection-start-column="78" selection-end-line="5" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="storage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/factory/storage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="message.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/service/message.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -68,17 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/service/message.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-267">
-              <caret line="19" column="40" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inboxCtrl.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="inboxCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ctrl/inboxCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
@@ -93,7 +98,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
               <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-              <folding />
+              <folding>
+                <marker date="1459858785647" expanded="true" signature="14:923" placeholder="{...}" />
+                <marker date="1459858785647" expanded="true" signature="118:919" placeholder="{...}" />
+                <marker date="1459858785647" expanded="true" signature="285:912" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,11 +151,11 @@
         <option value="$PROJECT_DIR$/js/ctrl/outboxCtrl.js" />
         <option value="$PROJECT_DIR$/js/ctrl/signUpCtrl.js" />
         <option value="$PROJECT_DIR$/js/service/constant.js" />
-        <option value="$PROJECT_DIR$/js/service/user.js" />
         <option value="$PROJECT_DIR$/js/factory/errorHttpInterceptor.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/ctrl/newMessageCtrl.js" />
         <option value="$PROJECT_DIR$/js/service/message.js" />
+        <option value="$PROJECT_DIR$/js/service/user.js" />
       </list>
     </option>
   </component>
@@ -404,12 +413,12 @@
       <workItem from="1459786825492" duration="11000" />
       <workItem from="1459800991657" duration="674000" />
       <workItem from="1459850664257" duration="4460000" />
-      <workItem from="1459855377071" duration="2633000" />
+      <workItem from="1459855377071" duration="4506000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45492000" />
+    <option name="totallyTimeSpent" value="47365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="744" extended-state="6" />
@@ -477,6 +486,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -549,6 +559,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -698,13 +709,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/service/requestBuilder.js" />
-    <entry file="file://$PROJECT_DIR$/js/factory/storage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ctrl/signUpCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -753,19 +757,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/service/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ctrl/newMessageCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding />
+          <folding>
+            <marker date="1459858785647" expanded="true" signature="14:923" placeholder="{...}" />
+            <marker date="1459858785647" expanded="true" signature="118:919" placeholder="{...}" />
+            <marker date="1459858785647" expanded="true" signature="285:912" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -777,18 +777,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/service/message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-267">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ctrl/inboxCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/factory/storage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/service/message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/service/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="78" selection-start-line="5" selection-start-column="78" selection-end-line="5" selection-end-column="78" />
           <folding />
         </state>
       </provider>
