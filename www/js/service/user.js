@@ -34,7 +34,7 @@
                     password: password
                 }
             };
-            
+
             $http(request).success(function (response) {
                 userBean.login = response.body.userBean.login;
                 userBean.masterServerToken = response.body.oauthKey;

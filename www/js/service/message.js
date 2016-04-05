@@ -17,7 +17,7 @@
                     response = response.body;
                     angular.forEach(response, function(message) {
                         inboxStorage.add(message);
-                        self.messages.push(message);
+                        // self.messages.push(message);
                     });
                 });
             }
@@ -25,10 +25,10 @@
         }
         loadMessages();
         
-        this.send = function (to, type, body) {
+        this.send = function (to, type, body, successCallback) {
             var request = {
-                method: CONSTANT.HTTP.SEND_MESSAGE.METHOD,
-                url: CONSTANT.HTTP.SEND_MESSAGE.URL,
+                method: CONSTANT.HTTP.REQUEST.SEND_MESSAGE.METHOD,
+                url: CONSTANT.HTTP.REQUEST.SEND_MESSAGE.URL,
                 data: {
                     to: to,
                     from: User.getLogin(),
@@ -40,8 +40,12 @@
             $http(request).success(function (response) {
                 outboxStorage.add({
                     to: to,
+                    type: type,
                     body: body
                 });
+                if (successCallback) {
+                    successCallback();
+                }
             });
         };
 

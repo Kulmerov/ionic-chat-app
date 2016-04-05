@@ -1,29 +1,31 @@
 ;(function () {
     var app = angular.module('app');
 
-    app.controller("NewMessageCtrl", function ($state, StorageFactory, User) {
+    app.controller("NewMessageCtrl", function ($state, Message) {
         var self = this;
-        var outboxStorage = new StorageFactory("OutboxStorage");
 
         self.message = {
-            from: User.getLogin(),
             to: "",
             type: "message",
             body: ""
         };
 
         self.send = function () {
-            var request = QueryBuilder.constructRequest("sendMessage", {
-                to: self.message.to,
-                from: User.getLogin(),
-                type: "message",
-                body: self.message.body
-            });
-
-            QueryBuilder.sendRequest(request, function () {
-                outboxStorage.add(self.message);
-                $state.go("outbox");
-            });
+            Message.send(self.message.to, self.message.type, self.message.body,
+                function () {
+                    $state.go("outbox");
+                });
+            // var request = QueryBuilder.constructRequest("sendMessage", {
+            //     to: self.message.to,
+            //     from: User.getLogin(),
+            //     type: "message",
+            //     body: self.message.body
+            // });
+            //
+            // QueryBuilder.sendRequest(request, function () {
+            //     outboxStorage.add(self.message);
+            //     $state.go("outbox");
+            // });
         };
     });
 }());

@@ -28,7 +28,8 @@
 
             responseError: function (err) {
                 console.log("5xx - responseError");
-                popupBadRequest("ERROR", "Http server error");
+                // popupBadRequest("ERROR", "Http server error");
+                popupBadRequest("ERROR", err.status);
                 return $q.reject(err);
             }
         };
