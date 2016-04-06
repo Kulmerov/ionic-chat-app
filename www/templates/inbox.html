@@ -1,4 +1,4 @@
-<ion-view view-title="Inbox Messages" ng-controller="InboxCtrl as InboxCtrl">
+<ion-view view-title="{{ 'INBOX.TITLE' | translate }}" ng-controller="InboxCtrl as InboxCtrl">
     <ion-content>
         <ion-list>
             <ion-item ng-repeat="message in InboxCtrl.messages">

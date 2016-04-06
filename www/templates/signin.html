@@ -1,19 +1,15 @@
-<ion-view view-title="Sign in" ng-controller="SignInCtrl as SignInCtrl">
+<ion-view view-title="{{ 'SIGN_IN.TITLE' | translate }}" ng-controller="SignInCtrl as SignInCtrl">
     <ion-content>
         <div class="list card">
             <div class="item item-input">
-                <input placeholder="Login" type="text" ng-model="SignInCtrl.userdata.login">
+                <input placeholder="{{ 'SIGN_IN.LOGIN_PLACEHOLDER' | translate }}" type="text" ng-model="SignInCtrl.userdata.login">
             </div>
             <div class="item item-input">
-                <input placeholder="Password" type="password" ng-model="SignInCtrl.userdata.password">
+                <input placeholder="{{ 'SIGN_IN.PASSWORD_PLACEHOLDER' | translate }}" type="password" ng-model="SignInCtrl.userdata.password">
             </div>
         </div>
         <div class="padding">
-            <button class="button button-block button-calm" ng-click="SignInCtrl.signIn()">Sign in</button>
-
+            <button class="button button-block button-calm" ng-click="SignInCtrl.signIn()">{{ 'SIGN_IN.BUTTON' | translate }}</button>
         </div>
-        <!--<div ng-controller="IndexCtrl as IndexCtrl">-->
-            <!--<button class="button button-block button-calm" ng-click="IndexCtrl.logout()">Log out</button>-->
-        <!--</div>-->
     </ion-content>
 </ion-view>

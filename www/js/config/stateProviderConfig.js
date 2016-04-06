@@ -29,8 +29,4 @@
 
         $urlRouterProvider.otherwise("/signin");
     });
-
-    app.config(['$httpProvider', function($httpProvider) {
-        $httpProvider.interceptors.push('ErrorHttpInterceptor');
-    }]);
 }());

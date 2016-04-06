@@ -1,4 +1,4 @@
-<ion-view view-title="Outbox Messages" ng-controller="OutboxCtrl as OutboxCtrl">
+<ion-view view-title="{{ 'OUTBOX.TITLE' | translate }}" ng-controller="OutboxCtrl as OutboxCtrl">
 	<ion-content>
 		<ion-list>
 	        <ion-item ng-repeat="message in OutboxCtrl.messages">
