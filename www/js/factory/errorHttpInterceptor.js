@@ -2,6 +2,7 @@
     var app = angular.module("app");
 
     app.factory("ErrorHttpInterceptor", function ($q, $injector) {
+        
         var popupBadRequest = function (title, template) {
             title = title || "ERROR";
             template = template || "Http request is failed";
@@ -14,7 +15,11 @@
         return {
             response: function (response) {
                 if (response.data.status && response.data.status === "ERROR") {
-                    popupBadRequest(response.data.status, response.data.body);
+                    if (response.data.body === "INVALID_STORAGE_KEY") {
+                        $injector.get("User").signIn();
+                    } else {
+                        popupBadRequest(response.data.status, response.data.body);
+                    }
                     return $q.reject(response);
                 }
                 return response;
@@ -34,5 +39,5 @@
             }
         };
     });
-    
+
 }());

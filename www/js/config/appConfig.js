@@ -27,7 +27,7 @@
             templateUrl: "templates/newmessage.html"
         });
 
-        $urlRouterProvider.otherwise("/inbox");
+        $urlRouterProvider.otherwise("/signin");
     });
 
     app.config(['$httpProvider', function($httpProvider) {

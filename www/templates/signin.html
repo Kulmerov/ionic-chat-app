@@ -1,15 +1,19 @@
 <ion-view view-title="Sign in" ng-controller="SignInCtrl as SignInCtrl">
-	<ion-content>
-		<div class="list card">
-			<div class="item item-input">
-				<input placeholder="Login" type="text" ng-model="SignInCtrl.userdata.login"></input>
-			</div>
-			<div class="item item-input">
-				<input placeholder="Password" type="password" ng-model="SignInCtrl.userdata.password"></textarea>
-			</div>
-		</div>
-		<div class="padding">
-			<button class="button button-block button-calm" ng-click="SignInCtrl.signIn()">Sig in</button>
-		</div>
-	</ion-content>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-input">
+                <input placeholder="Login" type="text" ng-model="SignInCtrl.userdata.login">
+            </div>
+            <div class="item item-input">
+                <input placeholder="Password" type="password" ng-model="SignInCtrl.userdata.password">
+            </div>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-calm" ng-click="SignInCtrl.signIn()">Sign in</button>
+
+        </div>
+        <!--<div ng-controller="IndexCtrl as IndexCtrl">-->
+            <!--<button class="button button-block button-calm" ng-click="IndexCtrl.logout()">Log out</button>-->
+        <!--</div>-->
+    </ion-content>
 </ion-view>
