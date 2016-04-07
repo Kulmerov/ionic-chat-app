@@ -4829,7 +4829,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       /** Enable bouncing (content can be slowly moved outside and jumps back after releasing) */
       bouncing: true,
 
-      /** Enable locking to the main axis if user moves only slightly on one of them at start */
+      /** Enable locking to the init axis if user moves only slightly on one of them at start */
       locking: true,
 
       /** Enable pagination mode (switching between full page content panes) */
@@ -21919,7 +21919,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       if (jqLite.hasData(firstElementToRemove)) {
         // Copy over user data (that includes Angular's $scope etc.). Don't copy private
         // data here because there's no public interface in jQuery to do that and copying over
-        // event listeners (which is the main use of private data) wouldn't work anyway.
+        // event listeners (which is the init use of private data) wouldn't work anyway.
         jqLite(newNode).data(jqLite(firstElementToRemove).data());
 
         // Remove data of the replaced element. We cannot just call .remove()
@@ -26441,7 +26441,7 @@ ASTCompiler.prototype = {
       watch.watchId = key;
     });
     this.state.computing = 'fn';
-    this.stage = 'main';
+    this.stage = 'init';
     this.recurse(ast);
     var fnString =
       // The build and minification steps remove the string "use strict" from the code, but this is done using a regex.
@@ -55366,7 +55366,7 @@ function($timeout, $document, $q, $ionicClickBlock, $ionicConfig, $ionicNavBarDe
  * have the workaround baked in.
  *
  * To apply this patch load/bundle this file with your application and add a
- * dependency on the "ngIOS9UIWebViewPatch" module to your main app module.
+ * dependency on the "ngIOS9UIWebViewPatch" module to your init app module.
  *
  * For example:
  *
@@ -61112,7 +61112,7 @@ IonicModule
         container.append($element);
         itemCtrl.$element.append(container).addClass('item-left-editable');
 
-        //Don't bubble click up to main .item
+        //Don't bubble click up to init .item
         $element.on('click', stopPropagation);
 
         init();
@@ -61214,7 +61214,7 @@ IonicModule.directive('ionOptionButton', [function() {
 
         itemCtrl.$element.addClass('item-right-editable');
 
-        //Don't bubble click up to main .item
+        //Don't bubble click up to init .item
         $element.on('click', stopPropagation);
       };
     }

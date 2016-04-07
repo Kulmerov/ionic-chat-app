@@ -5,6 +5,7 @@
         var self = this;
 
         var MASTER_SERVER_URL = "http://css.cloudapp.net:8080";
+        // var MASTER_SERVER_URL = "http://google.com";
 
         self.HTTP = {
             MASTER_SERVER_URL : MASTER_SERVER_URL,

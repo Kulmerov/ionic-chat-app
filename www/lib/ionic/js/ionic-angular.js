@@ -5024,7 +5024,7 @@ function($timeout, $document, $q, $ionicClickBlock, $ionicConfig, $ionicNavBarDe
  * have the workaround baked in.
  *
  * To apply this patch load/bundle this file with your application and add a
- * dependency on the "ngIOS9UIWebViewPatch" module to your main app module.
+ * dependency on the "ngIOS9UIWebViewPatch" module to your init app module.
  *
  * For example:
  *
@@ -10770,7 +10770,7 @@ IonicModule
         container.append($element);
         itemCtrl.$element.append(container).addClass('item-left-editable');
 
-        //Don't bubble click up to main .item
+        //Don't bubble click up to init .item
         $element.on('click', stopPropagation);
 
         init();
@@ -10872,7 +10872,7 @@ IonicModule.directive('ionOptionButton', [function() {
 
         itemCtrl.$element.addClass('item-right-editable');
 
-        //Don't bubble click up to main .item
+        //Don't bubble click up to init .item
         $element.on('click', stopPropagation);
       };
     }

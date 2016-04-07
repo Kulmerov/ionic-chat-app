@@ -8607,7 +8607,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       if (jqLite.hasData(firstElementToRemove)) {
         // Copy over user data (that includes Angular's $scope etc.). Don't copy private
         // data here because there's no public interface in jQuery to do that and copying over
-        // event listeners (which is the main use of private data) wouldn't work anyway.
+        // event listeners (which is the init use of private data) wouldn't work anyway.
         jqLite(newNode).data(jqLite(firstElementToRemove).data());
 
         // Remove data of the replaced element. We cannot just call .remove()
@@ -13129,7 +13129,7 @@ ASTCompiler.prototype = {
       watch.watchId = key;
     });
     this.state.computing = 'fn';
-    this.stage = 'main';
+    this.stage = 'init';
     this.recurse(ast);
     var fnString =
       // The build and minification steps remove the string "use strict" from the code, but this is done using a regex.

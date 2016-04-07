@@ -4822,7 +4822,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       /** Enable bouncing (content can be slowly moved outside and jumps back after releasing) */
       bouncing: true,
 
-      /** Enable locking to the main axis if user moves only slightly on one of them at start */
+      /** Enable locking to the init axis if user moves only slightly on one of them at start */
       locking: true,
 
       /** Enable pagination mode (switching between full page content panes) */
