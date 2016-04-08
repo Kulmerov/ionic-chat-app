@@ -1,7 +1,7 @@
 ;(function () {
     var app = angular.module("app");
 
-    app.factory("ErrorHttpInterceptor", function ($q, $injector, $cordovaNetwork, $ionicPlatform, $window, $translate) {
+    app.factory("ErrorHttpInterceptor", function ($q, $injector, $cordovaNetwork, $ionicPlatform, $window) {
 
         var popupBadRequest = undefined;
 
