@@ -3,8 +3,9 @@
 
     app.config(["$translateProvider", function($translateProvider) {
         $translateProvider.translations("en", {
-            'TEST': "dsf",
-            
+            CONNECTION: {
+                WAITING_FOR_CONNECTION: "Waiting for connection"
+            },
             SIDE_MENU: {
                 TITLE: "Menu",
                 INBOX: "Inbox",
@@ -40,6 +41,9 @@
         });
 
         $translateProvider.translations("ru", {
+            CONNECTION: {
+                WAITING_FOR_CONNECTION: "Ожидание подключения"
+            },
             SIDE_MENU: {
                 TITLE: "Меню",
                 INBOX: "Входящие",
